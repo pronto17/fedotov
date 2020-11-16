@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.menu1L{ width: 100%;
+		}
+		.menu1L li{ display: inline-block; margin: 3px 20px; cursor: pointer; color: #999;
+		}
+		.menu1L li:hover{color: #000;}
+		.menu2L{ position: absolute; top: 35px; left: 110px; display: none;
+
+		}
+		.menu2L li{
+
+		}
+	</style>
+	<script type="text/javascript">
+
+	function open4() {
+document.getElementById('m2p1').style.display="block";
+	}
+	function close4(){
+		document.getElementById('m2p1').style.display="none";
+	}
+
+
+	</script>
+	<script>
+		budilnik=null;
+		function showIt(n){
+			clearTimeout(budilnik);
+			N=2;
+			for (i = 1; i <= N; i++) {
+				document.getElementById("m2p"+i).style.display="none";
+			}
+			if (n>0) {
+				document.getElementById("m2p"+n).style.display="block";
+setTimeout("showIt(0)",5000);
+			}
+		}
+	</script>
+</head>
+<body>
+
+<div class="menu1L">
+	<li onmouseover="showIt(0)">Home</li>
+	<li onmouseover="showIt(1)" >Projects</li>
+	<li onmouseover="showIt(2)">Service</li>
+	<li>Partners</li>
+	<li>About</li>
+</div>
+
+
+<div class="menu2L" id="m2p1">
+	<li>Drones</li>
+	<li>Music</li>
+	<li>Video</li>
+	<li>Automatics</li>
+</div>
+
+<div class="menu2L" id="m2p2">
+	<li>Video production</li>
+	<li>Music production</li>
+	<li>Web-services</li>
+	<li>Animatronics</li>
+</div>
+
+</body>
+</html>
