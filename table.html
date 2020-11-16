@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html" charset="utf-8">
+	<title></title>
+	<script>
+		cvet="";
+		function kraska(kakaja){
+			cvet=kakaja;
+		}
+		function fon (gde){
+			gde.style.backGroundColor=cvet;
+		}
+	</script>
+</head>
+<body>
+<table border="1px" width="800px" height="800px">
+	<tr>
+		<td onclick="fon(this)">1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+		<tr>
+			<td>5</td>
+			<td>6</td>
+			<td>7</td>
+			<td>8</td>
+		</tr>
+			<tr>
+				<td>9</td>
+				<td>10</td>
+				<td>11</td>
+				<td>12</td>
+			</tr>
+				<tr>
+					<td>13</td>
+					<td>14</td>
+					<td>15</td>
+					<td>16</td>
+				</tr>
+</table>
+<span onclick="kraska('red')">R</span>
+	<span onclick="kraska('green')">G</span>
+	<span onclick="kraska('blue')">B</span>
+</body>
+</html>
