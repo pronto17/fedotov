@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html"; charset="utf-8">
+	<title>Формы</title>
+	<script language="javascript">
+		function dolg(){
+			//-------------------==================---------------
+			//      сбор данных
+			//-------------------==================---------------
+S= parseFloat (document.calculator.creditSumm.value);
+F= parseFloat (document.calculator.procent.value);
+T= parseFloat (document.calculator.term.value);
+
+			//-------------------==================---------------
+			//       валидация данных
+			//-------------------==================---------------
+if(S<=0 || P<=0){
+	alert("проверьте сумму кредита и годовых");
+	return;
+}
+else {
+
+
+
+			//-------------------==================---------------
+			//
+			//-------------------==================---------------
+			St=(1+T*P/1200)*S;
+			Sm=St/T;
+			O=St-S
+
+
+			//-------------------==================---------------
+			//
+			//-------------------==================---------------
+			document.calculator.perMonth.value=Sm;
+			document.calculator.totalSumm.value=St;
+			document.calculator.overSumm.value=O;
+}		
+}
+	</script>
+</head>
+<body>
+<form name="calculator" method="get" action="">
+<table>
+	<tr><td align="right">Сумма кредита:</td>
+		<td><input type="text" name="creditSumm"></td></tr>
+	<tr><td align="right">Процент годовых:</td><td><input type="text" name="procent" value=""></td></tr>			
+	<tr><td align="right">Срок:</td>
+		<td><select name="term">
+			<option value="6">6 месяцев</option>
+			<option value="12">12 месяцев</option>
+			<option value="18">18 месяцев</option>
+			<option value="24">2 года</option>
+			<option value="36">3 года</option>
+			<option value="60">5 лет</option>
+		</select></td></tr>	
+    <tr><td align="right">Выплаты в месяц:</td><td><input type="text" name="perMonth"> </td></tr>
+	<tr><td align="right">Общая сумма</td><td><input type="text" name="totalSumm"></td></tr>
+	<tr><td align="right">Переплата:</td><td><input type="text" name="overSumm"> </td></tr>
+	<tr><td align="right" colspan="2"></td><td><input onclick="dolg()" name="" type="button" value="рассчитать"></td></tr>	
+	<tr><td align="right"></td></tr>
+</table>
+</body>
+</html>
