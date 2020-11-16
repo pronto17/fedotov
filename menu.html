@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Выпадающее меню</title>
+<style type="text/css">
+.pdMenu {display:inline-block; width: auto; background-color: #c96; vertical-align: top; height: 20px; overflow: hidden; cursor: pointer;}
+.pdMenu:hover{height: auto;}
+.pdMenu h4 {margin: 2px 10px; text-transform: uppercase; font-size: 16px; font-family: sans-serif;}
+
+.jsMenu {display:inline-block; width: auto; background-color: #f27; vertical-align: top; height: 20px; overflow: hidden; cursor: pointer;}
+.jsMenu h4 {margin: 2px 10px; text-transform: uppercase; font-size: 16px; font-family: sans-serif;}
+</style>
+<script language="javascript">
+function otkroj(){
+	document.getElementById('kusok').style.height="auto";
+}
+function setBgColor(){
+	document.body.style.backgroundColor="red";
+}
+function zakroj(){
+	document.getElementById("kusok").style.height ="20px";
+}
+colorR=255; colorG=255;colorB=255; Dta =-1;
+function kakajanibud (){
+	document.body.style.backgroundColor= "rgb ("+colorR","+colorG","+colorB")";
+	colorR+=Dta;
+	if (colorR==0) {colorR=1;colorG+=Dta;}
+	if (colorG==0) {colorG=1;colorB+=Dta;}
+	if (colorB==0) {Dta=1;}
+	if (colorR==255) {colorR=254;colorG+=Dta;}
+	if (colorG==255) {colorG=254;colorB+=Dta;}
+	if (colorB==255) {Dta=-1;}
+	setTimeout ("kakajanibud()",10);
+}
+</script>
+</head>
+<body>
+<select>
+<option value="tln">Tallinn</option>
+<option value="trt">Tartu</option>
+<option value="prn">Pärnu</option>
+<option value="mrd">Maardu</option>
+</select>
+<div class="pdMenu" id="kusok">
+<h4>Linn</h4>
+<li><a href="https://www.tallinn.ee/" target="_blank">Tallinn</a></li>
+<li>Tartu</li>
+<li>Pärnu</li>
+<li>Maardu</li>
+</div>
+<div class="jsMenu" id="kusok" onmouseover="otkroj()">
+<h4>Linn</h4>
+<li><a href="https://www.tallinn.ee/" target="_blank">Tallinn</a></li>
+<li onclick="setBgcolor()">Tartu</li>
+<li>Pärnu</li>
+<li>Maardu</li>
+</div>
+</body>
+</html>
