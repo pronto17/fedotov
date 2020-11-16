@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function ikTest(pole)
+		{
+			/*
+
+			*/
+//alert (pole.value);
+
+
+otvet= "";
+
+maxDay=Array(31,28,31,30,31,30,31,31,30,31,30,31)
+visDay=Array(0,1,0,0,0,0,0,0,0,0,0,0)
+years = Array(0,1800,1800,1900,1900,2000,2000);
+gTest ="123456";
+g= Array("","мужской","женский","мужской","женский","мужской","женский");
+ik= pole.value;
+	testRez =true;
+if (ik.length==11) {
+	granted="0123456789";
+	for (i = 0; i <ik.length; i++) {
+		if(granted.indexOf (ik.substr(i,1))==-1)
+ testRez=false;
+	}
+
+	if (testRez==false) {otvet="неправильный персональный код";}
+userGen = ik.substr(0,1);
+if (gTest.indexOf(userGen)==-1) {
+	otvet="неправильный признак пола";
+}
+userYear = ik.substr(1,2);
+userMonth = ik.substr(3,2);
+if (parseInt(userMonth)<1 || parseInt(userMonth)>12) {
+	otvet="неправильный номер месяца";
+}
+fullUserYear=parseInt(userYear)+parseInt(years[userGen]);
+if ((fullUserYear%4==0 && fullUserYear%100!=0) || (fullUserYear%400==0)) {
+	isVis=true;
+} else {isVis=false;}
+maxDayNow=maxDay[parseInt(userMonth)]+(isVis==true? visDay[parseInt(
+	userMonth)]:0);
+userDay = ik.substr(5,2);
+if (parseInt(userDay)<1 || parseInt(userDay)>maxDayNow) {
+	otvet= "неправильный номер дня месяца"
+}
+ks=parseInt(ik.substr(0,1))*1+parseInt(ik.substr(1,1))*2+parseInt(ik.substr(2,1))*3+parseInt(ik.substr(3,1))*4+parseInt(ik.substr(4,1))*5+parseInt(ik.substr(5,1))*6+parseInt(ik.substr(6,1))*7+parseInt(ik.substr(7,1))*8+parseInt(ik.substr(8,1))*9+parseInt(ik.substr(9,1))*1;
+hvost=ks%11;
+if (ik.substr(10,1)!=hvost) {
+otvet="ошибка контрольной суммы";
+}
+//otvet="Пол-"+ g[userGen];
+//otvet += ", родился " +userDay+"."+userMonth+"."+userYear;
+}else {otvet="короткий персональный код";}
+
+document.getElementById("rez").innerHTML = otvet;
+}
+		
+	
+	</script>
+</head>
+<body>
+<input type="text" onkeyup ="ikTest(this)">
+<p id="rez"></p>
+</body>
+</html>
