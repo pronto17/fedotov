@@ -19,13 +19,10 @@ for(i=0;i<(C*R); i++) {
 miniBox=document.createElement("div");
 attr1=document.createAttribute("class");
 attr2=document.createAttribute("onclick");
-//attr2=document.createAttribute("onMouseOver");
 attr1.value="gameCell";
 attr2.value="turn(this)";
-//attr2.value="cellHover(this)";
 miniBox.attributes.setNamedItem(attr1);
 miniBox.attributes.setNamedItem(attr2);
-//miniBox.attributes.setNamedItem(attr3);
 miniBox.style.width=collWidth+"px";
 miniBox.style.height=rowHeight+"px";
 miniBox.style.backgroundColor=colors[c];
@@ -63,11 +60,5 @@ oldCell=null;
 oldBG='';
 	}
 }
-
-/*function cellHover(this) {
-	for(j=0; j<64; j++){
-	document.getElementById("gameBoard").
-	}
-}*/
 
 //нужно сформулировать правила движения для каждой фигуры
